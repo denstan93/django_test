@@ -27,7 +27,15 @@
         </div>
         <div class="col-3" style="padding: 0px">
             <div class="card card-body bg-white">
-                Привет 
+                {% if flag %}
+                <form method="post" action="login">
+                    <input type="text" name="username" class="card card-columns bg-dark" style="color: white">
+                    <input type="password" name="password" class="card card-columns bg-dark" style="color: white">
+                    <button type="submit" class="btn-sm btn btn-success">Sign in</button>
+                </form>
+                {% else %}
+                Привет {{ username }}
+                {% endif %}
             </div>
         </div>
     </div>

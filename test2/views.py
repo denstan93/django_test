@@ -4,7 +4,12 @@ from test2.models import *
 from django.contrib.auth import authenticate, login
 
 def index(request):
-    return render_to_response('main_page.html')
+    contex= {'username': request.user.username,
+             'flag': request.user.username == ""}
+    return render_to_response(
+        'main_page.html',
+        contex
+    )
 
 def barbershop(request):
     s = ''
