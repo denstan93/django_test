@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 
 def index(request):
     contex= {'username': request.user.username,
-             'flag': request.user.username == ""}
+             'anonim': request.user.username == ""}
     return render_to_response(
         'main_page.html',
         contex
