@@ -4,5 +4,6 @@ from test2.views import *
 urlpatterns = [
     path('main_page', index),
     path('BarberShop', barbershop),
-    path('',index2)
+    path('',index2),
+    path('login',login_user)
 ]
