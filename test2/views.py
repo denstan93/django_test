@@ -43,7 +43,7 @@ def do_logout(request):
         return HttpResponse('egc')
 def register(request):
     user = User.objects.create_user(
-        request.POST['login'],
+        username=request.POST['username'],
         password=request.POST['password'],
         first_name='aaaa',
         last_name='bbbb',
@@ -51,5 +51,5 @@ def register(request):
     )
     client = Client(user=user, address='Minsk')
     client.save()
-    return HttpResponse('OK')
+    return HttpResponseRedirect('/')
 
