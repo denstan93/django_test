@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from test2.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -53,3 +53,8 @@ def registration(request):
     client.save()
     return HttpResponseRedirect('main_page')
 
+def ajax_path(request):
+    response = {
+        'message': request.POST['a'] + ' world'
+    }
+    return JsonResponse(response)

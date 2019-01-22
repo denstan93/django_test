@@ -10,4 +10,18 @@ $(document).ready(function () {
             alert('Hello ' + $('#input_user').val() + '!!!')
         }
     })
+
+
+    $('#qwe').click(function (e) {
+
+        $.post(
+            "ajax_path",
+            {
+                'a' : 'Hello'
+            },
+            function (response) {
+                alert(response.message)
+            }
+        );
+    })
 });

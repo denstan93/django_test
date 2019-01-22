@@ -8,6 +8,7 @@ urlpatterns = [
     path('login',login_user),
     path('logout',do_logout),
     path('register',register),
-    path('registration',registration)
+    path('registration',registration),
+    path('ajax_path',ajax_path)
 
 ]
