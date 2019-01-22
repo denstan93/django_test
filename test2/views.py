@@ -42,14 +42,14 @@ def do_logout(request):
     else:
         return HttpResponse('egc')
 def register(request):
+    return render_to_response('register.html',{})
+
+def registration(request):
     user = User.objects.create_user(
         username=request.POST['username'],
-        password=request.POST['password'],
-        first_name='aaaa',
-        last_name='bbbb',
-        email='a@b.c'
+        password=request.POST['password']
     )
     client = Client(user=user, address='Minsk')
     client.save()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('main_page')
 

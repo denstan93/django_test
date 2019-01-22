@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/star.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="registration">
+    <input id="input_user" type="text" name="username" class="card card-columns bg-dark" style="color: white">
+    <input id="input_pass" type="password" name="password" class="card card-columns bg-dark" style="color: white">
+{% comment %}    <input type="text" name="first_name" class="card card-columns bg-dark" style="color: white">
+    <input type="text" name="last_name" class="card card-columns bg-dark" style="color: white">
+    <input type="email" name="email" class="card card-columns bg-dark" style="color: white">{% endcomment %}
+    <button id="registration" type="submit" class="btn-sm btn btn-outline-primary">Registration</button>
+</form>
+</body>
+</html>
