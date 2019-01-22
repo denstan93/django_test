@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" xmlns="http://www.w3.org/1999/html">
 <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/static/js/popper.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
@@ -28,13 +28,25 @@
         <div class="col-3" style="padding: 0px">
             <div class="card card-body bg-white">
                 {% if anonim %}
-                <form method="post" action="login">
-                    <input type="text" name="username" class="card card-columns bg-dark" style="color: white">
-                    <input type="password" name="password" class="card card-columns bg-dark" style="color: white">
-                    <button type="submit" class="btn-sm btn btn-success">Sign in</button>
-                </form>
+                    <form method="post" action="login">
+                        <input type="text" name="username" class="card card-columns bg-dark" style="color: white">
+                        <input type="password" name="password" class="card card-columns bg-dark" style="color: white">
+                        <button type="submit" class="btn-sm btn btn-outline-success">Sign in</button>
+                    </form>
+                    <form method="post" action="register">
+                        <input type="text" name="username" class="card card-columns bg-dark" style="color: white">
+                        <input type="password" name="password" class="card card-columns bg-dark" style="color: white">
+                        <input type="text" name="first_name" class="card card-columns bg-dark" style="color: white">
+                        <input type="text" name="last_name" class="card card-columns bg-dark" style="color: white">
+                        <input type="email" name="email" class="card card-columns bg-dark" style="color: white">
+                        <button type="submit" class="btn-sm btn btn-outline-primary">Registration</button>
+                    </form>
                 {% else %}
-                Привет {{ username }}
+                    Привет {{ username }}
+                    <form method="post" action="logout">
+                        <button type="submit" class="btn-sm btn btn-outline-danger" style="width: min-content">Logout
+                        </button>
+                    </form>
                 {% endif %}
             </div>
         </div>
@@ -42,7 +54,6 @@
     <div class="row">
         <div class="card card-body bg-dark"></div>
     </div>
-    <footer class="navbar-light">ppp</footer>
 </div>
 </body>
 </html>
