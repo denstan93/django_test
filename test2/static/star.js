@@ -24,4 +24,9 @@ $(document).ready(function () {
             }
         );
     })
+
+    $('#barbershop').click.show()
+
+
+
 });

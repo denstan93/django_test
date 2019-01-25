@@ -49,6 +49,8 @@ def registration(request):
         username=request.POST['username'],
         password=request.POST['password']
     )
+    barber_shop = BarberShop(name=name, addres=addres, time_work=timework)
+    barber_shop.save()
     client = Client(user=user, address='Minsk')
     client.save()
     return HttpResponseRedirect('main_page')
