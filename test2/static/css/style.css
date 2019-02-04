@@ -1,0 +1,10 @@
+html, body, header, #intro{
+    height: 100%;
+}
+#intro{
+    background: url("../pic/1.jpg") center center no-repeat fixed;
+    background-size: cover;
+}
+.top-nav-collapse{
+    background-color: #4A515F;
+}

@@ -13,29 +13,44 @@
 <body>
 <form method="post" action="registration">
     <input id="input_user" type="text" name="username"
-           class="card card-columns bg-dark" style="color: white">
+           class="card card-columns bg-dark required" style="color: white">
     <input id="input_pass" type="password" name="password"
-           class="card card-columns bg-dark" style="color: white">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" id="barbershop">BarberShop
-        <form style="display: None">
-            eq
-
-        </form>
-    </button>
-    <button class="dropdown-item" type="button">Master</button>
-  </div>
-</div>
+           class="card card-columns bg-dark" style="color: white" required>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Выбрать
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" id="barbershop1">BarberShop</button>
+{#            <button class="dropdown-item" type="button" id="master1">Master</button>#}
+        </div>
+    </div>
+    <form1 method="post" style="display: none">имя шопаа
+        <input type="text" name="name_barber_shop" class=" card card-columns bg-dark required"
+               style="color: #eeefea">аддрес
+        <input type="text" name="addres" class="card card-columns bg-dark required"
+               style="color: #eeefea">время работы
+        <input type="text" name="time_work" class="card card-columns required"
+               style="color: #eeefea; background-color: #527590">
+    </form1>
+{% comment %}    <form2 method="post" style="display: none" class="disabled"> имя мастера
+        <input type="text" name="name_master" class=" card card-columns bg-dark required"
+               style="color: #eeefea">где работает
+        <input type="text" name="work_place" class="card card-columns bg-dark required"
+               style="color: #eeefea">опыт
+        <input type="text" name="experience" class="card card-columns bg-dark required"
+               style="color: #eeefea">
+    </form2>{% endcomment %}
     {% comment %}    <input type="text" name="first_name" class="card card-columns bg-dark" style="color: white">
     <input type="text" name="last_name" class="card card-columns bg-dark" style="color: white">
     <input type="email" name="email" class="card card-columns bg-dark" style="color: white">{% endcomment %}
-    <button id="registration" type="submit"
-            class="btn-sm btn btn-outline-primary">Registration
-    </button>
+    <form action="main_page.html" method="post">
+        <button id="registration" type="submit"
+                class="btn-sm btn btn-outline-primary">Registration
+        </button>
+    </form>
+
 </form>
 </body>
 </html>

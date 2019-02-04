@@ -41,6 +41,7 @@ def do_logout(request):
         return HttpResponseRedirect('/')
     else:
         return HttpResponse('egc')
+
 def register(request):
     return render_to_response('register.html',{})
 
@@ -49,10 +50,16 @@ def registration(request):
         username=request.POST['username'],
         password=request.POST['password']
     )
-    barber_shop = BarberShop(name=name, addres=addres, time_work=timework)
+    name_barber_shop = request.POST['name_barber_shop']
+    addres = request.POST['addres']
+    time_work = request.POST['time_work']
+    barber_shop = BarberShop(user=user, name=name_barber_shop, addres=addres, time_work=time_work)
     barber_shop.save()
-    client = Client(user=user, address='Minsk')
-    client.save()
+    # name_master = request.POST['name_master']
+    # work_place = request.POST['work_place']
+    # experience = request.POST['experience']
+    # master = Master(user=user, name=name_master, work_place=work_place, experience=experience)
+    # master.save()
     return HttpResponseRedirect('main_page')
 
 def ajax_path(request):
@@ -60,3 +67,8 @@ def ajax_path(request):
         'message': request.POST['a'] + ' world'
     }
     return JsonResponse(response)
+
+#
+# name2 = request.POST['name_master'],
+# work_place = request.POST['work_place'],
+# experience = request.POST['experience']

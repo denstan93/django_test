@@ -25,8 +25,18 @@ $(document).ready(function () {
         );
     })
 
-    $('#barbershop').click.show()
 
+    $('#barbershop1').click(function (e) {
+        $('form1').toggle();
+        $('form2').hide();
+        $('form1').enable();
 
+    })
+
+    $('#master1').click(function (e) {
+        $('form2').toggle();
+        $('form1').hide();
+        $('form2').enable();
+    })
 
 });
