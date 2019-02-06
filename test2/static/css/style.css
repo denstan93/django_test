@@ -6,5 +6,8 @@ html, body, header, #intro{
     background-size: cover;
 }
 .top-nav-collapse{
-    background-color: #4A515F;
+    background-color: #1C2331;
+}
+.wow {
+    visibility: hidden;
 }
