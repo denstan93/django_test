@@ -19,7 +19,7 @@ class Master(models.Model):
     portfolio = models.CharField(max_length=100)
 
 
-class recording(models.Model):
+class Recording(models.Model):
     data = models.DateTimeField(max_length=100)
     time = models.TimeField(max_length=100)
     name_clieint = models.ForeignKey(Client, on_delete=models.CASCADE)
