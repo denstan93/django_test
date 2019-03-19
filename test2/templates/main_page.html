@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/static/css/bootstrap.min.css" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+{% comment %}<link rel="stylesheet" href="/static/css/bootstrap.min.css" xmlns="http://www.w3.org/1999/html">
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script src="/static/js/popper.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/star.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>{% endcomment %}
 
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../static/icon1.png" type="image/png">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../static/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../static/css/style.css" rel="stylesheet">
 </head>
 
+
 <body>
-<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar sticky-top">
-    xe xe xe
-</header>
+<script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="../static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="../static/js/mdb.js"></script>
+<script type="text/javascript"
+        src="../static/js/modules/wow.js">new WOW().init();</script>
+<script type="text/javascript" src="../static/star.js"></script>
 <div class="'container-fluid">
     <div class="row">
         <div class="card card-body bg-dark"></div>
@@ -25,6 +46,15 @@
         <div class="col-6" style="padding: 0px">
             <div class="card card-body bg-secondary">
                 <button id="qwe" type="button" class="btn btn-outline-success">aaa</button>
+                <div id="qwe" style="display: none" class="disabled">
+                    <form method="post">
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-cut prefix grey-text"></i>
+                            <input type="text" id="name_client" class="form-control form-control-sm" required>
+                            <label for="name_client">Your Name</label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="col-3" style="padding: 0px">
@@ -45,9 +75,101 @@
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="card card-body bg-dark"></div>
     </div>
 </div>
+
+
+    <div class="row">
+        <div class="col-xl-12 col-md-12">
+            <form class="p-5" method="post" action="registration" style="background-color: snow; height: auto">
+                <div class="md-form form-sm d-flex">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    <input type="text" id="login1" class="form-control form-control-sm" required>
+                    <label for="login1">Your Login</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="email1" class="form-control form-control-sm" required>
+                    <label for="email1">Your Email</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fab fa-keycdn prefix grey-text"></i>
+                    <input type="password" id="password1" class="form-control form-control-sm" required>
+                    <label for="password1">Your Password</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fas fa-users prefix grey-text"></i>
+                    <p class="grey-text mx-auto" style="width: 40%">Choose your account Type</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-md dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button" id="#barbershop">BarberShop</button>
+                            <button class="dropdown-item" type="button" id="#master">Master</button>
+                            <button class="dropdown-item" type="button" id="client1">Client</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="barbershop">
+                    <form method="post">
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-cut prefix grey-text"></i>
+                            <input type="text" id="name_barbershop" class="form-control form-control-sm" required>
+                            <label for="name_barbershop">Name of the BarberShop</label>
+                        </div>
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                            <input type="text" id="address" class="form-control form-control-sm" required>
+                            <label for="address">Address</label>
+                        </div>
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-clock prefix grey-text"></i>
+                            <input type="text" id="working_hours" class="form-control form-control-sm" required>
+                            <label for="working_hours">Working hours</label>
+                        </div>
+                    </form>
+                </div>
+                <div id="master">
+                    <form method="post">
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-cut prefix grey-text"></i>
+                            <input type="text" id="name_master" class="form-control form-control-sm" required>
+                            <label for="name_master">Master name</label>
+                        </div>
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                            <input type="text" id="work_place" class="form-control form-control-sm" required>
+                            <label for="work_place">Work place</label>
+                        </div>
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-clock prefix grey-text"></i>
+                            <input type="text" id="experience" class="form-control form-control-sm" required>
+                            <label for="experience">Experience</label>
+                        </div>
+                    </form>
+                </div>
+                <div id="client2" style="display: none" class="disabled">
+                    <form method="post">
+                        <div class="md-form form-sm d-flex">
+                            <i class="fas fa-cut prefix grey-text"></i>
+                            <input type="text" id="name_client" class="form-control form-control-sm" required>
+                            <label for="name_client">Your Name</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center mb-5">
+                    <form action="/" method="post">
+                    <button type="submit" id="registration" class="btn btn-primary btn-md waves-effect waves-light">
+                        Send <i class="far fa-paper-plane ml-1"></i></button>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,44 +1,145 @@
+<!DOCTYPE html>
+<head>
+    <title>Auctio | Registration</title>
+</head>
 {% extends "common.html" %}
 {% block information %}
-<form method="post" action="registration">
-    <input id="input_user" type="text" name="username"
-           class="card card-columns required" style="color: white">
-    <input id="input_pass" type="password" name="password"
-           class="card card-columns bg-dark" style="color: white" required>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            Выбрать
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button" id="barbershop1">BarberShop</button>
-{#            <button class="dropdown-item" type="button" id="master1">Master</button>#}
+    <div class="container">
+        <div class="col-xl-12 col-md-12">
+            <form class="p-5" method="post" action="registration">
+                <div class="md-form form-sm d-flex">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    <input type="text" id="input_user" name="username" class="form-control form-control-sm" required>
+                    <label for="input_user">Your Login</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="email1" name="email" class="form-control form-control-sm" required>
+                    <label for="email1">Your Email</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fab fa-keycdn prefix grey-text"></i>
+                    <input type="password" id="input_pass" name="password" class="form-control form-control-sm"
+                           required>
+                    <label for="input_pass">Your Password</label>
+                </div>
+                <div class="md-form form-sm d-flex">
+                    <i class="fas fa-users prefix grey-text"></i>
+                    <p class="grey-text mx-auto" style="width: 30%">Choose your account Type</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-md dropdown-toggle" type="button"
+                                id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Choose
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button" id="barbershop1">BarberShop</button>
+                            <button class="dropdown-item" type="button" id="master1">Master</button>
+                            <button class="dropdown-item" type="button" id="client1">Client</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="barbershop2" style="display: none">
+                    <div class="md-form form-sm d-flex">
+                        <i class="fas fa-cut prefix grey-text"></i>
+                        <input disabled type="text" name="name_barber_shop" id="name_barbershop"
+                               class="form-control form-control-sm">
+                        <label for="name_barbershop">Name of the BarberShop</label>
+                    </div>
+                    <div class="md-form form-sm d-flex">
+                        <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                        <input disabled type="text" name="addres" id="address" class="form-control form-control-sm">
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="md-form form-sm d-flex">
+                        <i class="fas fa-clock prefix grey-text"></i>
+                        <input disabled type="text" name="time_work" id="working_hours"
+                               class="form-control form-control-sm">
+                        <label for="working_hours">Working hours</label>
+                    </div>
+                </div>
+
+                <div id="master2" style="display: none">
+                    <div class="md-form form-sm d-flex">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input disabled name="name_master" type="text" id="name_master" class="form-control form-control-sm">
+                        <label for="name_master">Master name</label>
+                    </div>
+                    <div class="md-form form-sm d-flex">
+                        <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                        <input disabled name="work_place" type="text" id="work_place" class="form-control form-control-sm">
+                        <label for="work_place">Work place</label>
+                    </div>
+                    <div class="md-form form-sm d-flex">
+                        <i class="fas fa-calendar-day prefix grey-text"></i>
+                        <input disabled name="experience" type="text" id="experience" class="form-control form-control-sm">
+                        <label for="experience">Experience</label>
+                    </div>
+                </div>
+
+                <div id="client2" style="display: none">
+                    <div class="md-form form-sm d-flex">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input disabled name="name_client" type="text" id="name_client" class="form-control form-control-sm">
+                        <label for="name_client">Your Name</label>
+                    </div>
+                </div>
+
+
+                <form action="main_page.html" method="post">
+                    <div class="text-center">
+                        <button type="submit" id="registration"
+                                class="btn btn-primary btn-md waves-effect waves-light">
+                            Sign Up <i class="far fa-paper-plane ml-1"></i></button>
+                    </div>
+                </form>
+            </form>
         </div>
     </div>
-    <form1 method="post" style="display: none">имя шопаа
-        <input type="text" name="name_barber_shop" class=" card card-columns bg-dark required"
-               style="color: #eeefea">аддрес
-        <input type="text" name="addres" class="card card-columns bg-dark required"
-               style="color: #eeefea">время работы
-        <input type="text" name="time_work" class="card card-columns required"
-               style="color: #eeefea; background-color: #527590">
-    </form1>
-{% comment %}    <form2 method="post" style="display: none" class="disabled"> имя мастера
-        <input type="text" name="name_master" class=" card card-columns bg-dark required"
-               style="color: #eeefea">где работает
-        <input type="text" name="work_place" class="card card-columns bg-dark required"
-               style="color: #eeefea">опыт
-        <input type="text" name="experience" class="card card-columns bg-dark required"
-               style="color: #eeefea">
-    </form2>{% endcomment %}
-    {% comment %}    <input type="text" name="first_name" class="card card-columns bg-dark" style="color: white">
-    <input type="text" name="last_name" class="card card-columns bg-dark" style="color: white">
-    <input type="email" name="email" class="card card-columns bg-dark" style="color: white">{% endcomment %}
-    <form action="main_page.html" method="post">
-        <button id="registration" type="submit"
-                class="btn-sm btn btn-outline-primary">Registration
-        </button>
-    </form>
-
-</form>
 {% endblock %}
+
+
+{% comment %}
+    <hr class="my-5">
+    <form method="post" action="registration">
+        <input id="input_user" type="text" name="username"
+               class="card card-columns required" style="color: white">
+        <input id="input_pass" type="password" name="password"
+               class="card card-columns bg-dark" style="color: white" required>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+
+                Выбрать
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button" id="barbershop1">BarberShop</button>
+                {#            <button class="dropdown-item" type="button" id="master1">Master</button>#}
+            </div>
+        </div>
+        <form1 method="post" style="display: none">имя шопаа
+            <input type="text" name="name_barber_shop" class=" card card-columns bg-dark required"
+                   style="color: #eeefea">аддрес
+            <input type="text" name="addres" class="card card-columns bg-dark required"
+                   style="color: #eeefea">время работы
+            <input type="text" name="time_work" class="card card-columns required"
+                   style="color: #eeefea; background-color: #527590">
+        </form1>
+        <form2 method="post" style="display: none" class="disabled"> имя мастера
+            <input type="text" name="name_master" class=" card card-columns bg-dark required"
+                   style="color: #eeefea">где работает
+            <input type="text" name="work_place" class="card card-columns bg-dark required"
+                   style="color: #eeefea">опыт
+            <input type="text" name="experience" class="card card-columns bg-dark required"
+                   style="color: #eeefea">
+        </form2>
+        <input type="text" name="first_name" class="card card-columns bg-dark" style="color: white">
+        <input type="text" name="last_name" class="card card-columns bg-dark" style="color: white">
+        <input type="email" name="email" class="card card-columns bg-dark" style="color: white">
+        <form action="main_page.html" method="post">
+            <button id="registration" type="submit"
+                    class="btn-sm btn btn-outline-primary">Registration
+            </button>
+        </form>
+
+    </form>{% endcomment %}

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../static/icon1.png" type="image/png">
     <title>Auctio | Home</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -14,9 +15,8 @@
     <link href="../static/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="../static/css/style.css" rel="stylesheet">
-    <!-- Animation -->
-    <link href="../static/css/modules/animate.css" rel="stylesheet">
 </head>
+
 <body>
 <!-- SCRIPTS -->
 <!-- JQuery -->
@@ -27,13 +27,13 @@
 <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="../static/js/mdb.js"></script>
-<script>
-    new WOW().init();
-</script>
+<script type="text/javascript" src="../static/star.js"></script>
+<script>new WOW().init();</script>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <a href="#" class="navbar-brand">Auctio</a>
+            <a href="http://127.0.0.1:8000" class="navbar-brand">Auctio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,10 +41,7 @@
             <div class="collapse navbar-collapse" id="basicExampleNav">
                 <ul class="navbar-nav mr-auto smooth-scroll">
                     <li class="nav-item">
-                        <a href="#intro" class="nav-link waves-effect waves-light"><strong>Home</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#BarberShop" class="nav-link waves-effect waves-light"><strong>BarberShop</strong></a>
+                        <a href="users" class="nav-link waves-effect waves-light"><strong>BarberShop</strong></a>
                     </li>
                     <li class="nav-item">
                         <a href="#Master" class="nav-link waves-effect waves-light"><strong>Master</strong></a>
@@ -55,17 +52,37 @@
                 </ul>
                 <ul class="navbar-nav nav-flex-icons">
                     <li class="nav-item">
+                        <div>
+                            {% if anonim %}
+                                <form>
+                                    <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"
+                                       data-target="#exampleModal"><strong>Sign In | Sign Us</strong></a>
+                                </form>
+                            {% else %}
+                                <div style="color: white">Привет {{ username }}</div>
+                                <form method="post" action="logout">
+                                    <button type="submit" class="btn-sm btn btn-outline-danger"
+                                            style="width: min-content">
+                                        Logout
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="nav-item">
                         <a href="https://t.me/Denstan" target="_blank" class="nav-link waves-effect waves-light">
                             <i class="fab fa-telegram-plane"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://twitter.com/iamdenstan" target="_blank" class="nav-link waves-effect waves-light">
+                        <a href="https://twitter.com/iamdenstan" target="_blank"
+                           class="nav-link waves-effect waves-light">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.instagram.com/iamdenstan" target="_blank" class="nav-link waves-effect waves-light">
+                        <a href="https://www.instagram.com/iamdenstan" target="_blank"
+                           class="nav-link waves-effect waves-light">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </li>
@@ -73,17 +90,22 @@
             </div>
         </div>
     </nav>
+
     <div id="intro" class="view animated fadeIn">
         <div class="mask rgba-black-strong">
             <div class="container-fluid d-flex align-items-center justify-content-center h-100">
                 <div class="row d-flex justify-content-center text-center">
                     <div class="col-md-10">
                         <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">
-                            123
+                            Добро пожаловать на платформу Auctio
                         </h2>
                         <hr class="hr-light">
-                        <h4 class="white-text my-4">qqqqqqqqq</h4>
-                        <button class="btn-outline-white waves-effect waves-light">read more
+                        <h4 class="white-text my-4">
+                            Здесь вы сможете ознакомится с историией возникновения барбершопов, мужских стрижек.
+                            А так же найдёте подходящего для себя мастера!
+                        </h4>
+                        <button class="btn-outline-white waves-effect waves-light" data-toggle="modal"
+                                       data-target="#exampleModalrules">Правила
                             <i class="fa fa-book"></i>
                         </button>
                     </div>
@@ -306,6 +328,69 @@
         </div>
     </div>
 </footer>
+
+<div class="modal animated fadeIn" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign In | Sign Up</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form method="post" action="login">
+                        <div class="form-froup">
+                            <label for="exampleInputEmail">Email address</label>
+                            <input type="text" name="username" class="form-control" id="exampleInputEmail"
+                                   aria-describedby="emailHelp" placeholder="Email" required>
+                            <small id="emailHelp" class="form-text text-muted"> Enter your Email</small>
+                        </div>
+                        <div class="form-froup">
+                            <label for="exampleInputPass">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPass"
+                                   placeholder="Password" required>
+                            <small id="passHelp" class="form-text text-muted"> Пароль должен содержать</small>
+                        </div>
+                        <div class="foem-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"> Запомнить меня
+                            </label>
+                        </div>
+                        <button class="btn btn-outline-primary" type="submit">Log In</button>
+                        <button class="btn btn-sm btn-outline-primary" type="button">
+                            <a href="http://127.0.0.1:8000/register" style="">Registration</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal animated fadeIn" id="exampleModalrules" tabindex="-1" role="dialog" aria-labelledby="exampleModalrules"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Правила</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <p class="grey-text">Здесь должны быть правила</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <script src="https://maps.google.com/maps/api/js?"></script>
 <script>
